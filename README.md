@@ -8,7 +8,7 @@ goes to the window for web work, waits for you when Claude needs your approval, 
 
 This repository holds the installers and this page only. The source code is not public.
 
-> **Alpha.** Diwan 0.3.0 is a pre-release: expect rough edges and changes between versions.
+> **Alpha.** Diwan 0.3.1 is a pre-release: expect rough edges and changes between versions.
 > **Windows has not been tested on a real Windows machine yet.** The Windows installer is built on a GitHub runner and may
 > not work. Linux is the platform it is developed on.
 
@@ -37,13 +37,13 @@ open a new terminal. Other ways to install it are in Anthropic's guide: https://
 
 Download the file for your system from the [Releases](../../releases) page.
 
-- **Debian, Ubuntu, Zorin, Mint:** `Diwan_0.3.0_amd64.deb`, then
+- **Debian, Ubuntu, Zorin, Mint:** `Diwan_0.3.1_amd64.deb`, then
 
-      sudo apt install ./Diwan_0.3.0_amd64.deb
+      sudo apt install ./Diwan_0.3.1_amd64.deb
 
-- **Other Linux:** `Diwan_0.3.0_amd64.AppImage`, then `chmod +x Diwan_0.3.0_amd64.AppImage` and run it.
+- **Other Linux:** `Diwan_0.3.1_amd64.AppImage`, then `chmod +x Diwan_0.3.1_amd64.AppImage` and run it.
   On Ubuntu 24.04 and later AppImages need `sudo apt install libfuse2t64` (on 22.04: `libfuse2`).
-- **Windows (untested):** `Diwan_0.3.0_x64-setup.exe`. The installer is not signed, so Windows may say
+- **Windows (untested):** `Diwan_0.3.1_x64-setup.exe`. The installer is not signed, so Windows may say
   "Windows protected your PC": click **More info**, then **Run anyway**. It installs for your user only.
 
 `SHA256SUMS.txt` lists the checksum of every file (`sha256sum -c SHA256SUMS.txt` on Linux).
