@@ -97,3 +97,8 @@ folder.
 ## Reporting problems
 
 Open an issue in this repository with your system, your Claude Code version (`claude --version`) and what you saw.
+
+## License
+
+Diwan is proprietary software, free to use under its [license](LICENSE). Some features may become paid in the future.
+The open source components it includes are listed in [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
