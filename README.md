@@ -1,5 +1,7 @@
 # Diwan
 
+![Diwan: scribes at work in the hall, with the app logo and a one-line description](assets/cover.png)
+
 Diwan (ديوان) is a desktop app where you chat with Claude Code and watch a scribe in an old hall do the work. Each
 session is a scribe and each project folder gets its own table. The scribe writes at its table, reads in the archive,
 goes to the window for web work, waits for you when Claude needs your approval, and goes home when the session ends.
