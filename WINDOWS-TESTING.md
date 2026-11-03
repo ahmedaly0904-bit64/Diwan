@@ -20,7 +20,7 @@ screenshots. Do not paste your email address or account details from any command
 
 | # | Do | You should see | Send |
 |---|---|---|---|
-| W1 | Install `Diwan_0.3.0_x64-setup.exe` | SmartScreen: **More info** → **Run anyway**. It installs without admin. If it asks for WebView2 it installs it by itself | A screenshot of any message |
+| W1 | Install `Diwan_0.3.1_x64-setup.exe` | SmartScreen: **More info** → **Run anyway**. It installs without admin. If it asks for WebView2 it installs it by itself | A screenshot of any message |
 | W2 | Open Diwan from the Start menu **before** installing Claude Code | The hall is drawn (floor, walls and both tables complete) and a card "Claude Code is not installed" with an `irm ...` command | A screenshot of the whole screen |
 | W3 | In PowerShell: `irm https://claude.ai/install.ps1 \| iex`, then `Test-Path "$env:USERPROFILE\.local\bin\claude.exe"` and `where.exe claude` (in the same, old window). Go back to Diwan → **Check again** | `True`, and `where.exe` may not find it. The card now says "Claude Code is not signed in" | The output of both commands + a screenshot |
 | W4 | `& "$env:USERPROFILE\.local\bin\claude.exe"` → sign in → quit. Also `& "$env:USERPROFILE\.local\bin\claude.exe" auth status --json \| Select-String loggedIn` and `& "$env:USERPROFILE\.local\bin\claude.exe" --version`. **Check again** | The card goes away | The output (without your email) |
@@ -32,6 +32,9 @@ screenshots. Do not paste your email address or account details from any command
 | W10 | (Optional; tests the event bus and the scene without Claude) With Diwan open, run the PowerShell script below | Each call answers `ok` = `True`; a scribe walks in and goes to the archive, and after the second event it leaves | The output + a screenshot |
 | W11 | (If npm is installed) `npm install -g @anthropic-ai/claude-code`, move the native one aside (`Rename-Item "$env:USERPROFILE\.local\bin\claude.exe" claude.exe.bak`), close and reopen Diwan, open a session | Diwan finds `%APPDATA%\npm\claude.cmd` and works, and closing leaves no orphan `claude.exe` | A screenshot + Task Manager. Rename it back afterwards |
 | W12 | (Only if the PC has a second drive, for example `D:`) Make a folder there with a space in its name, for example `D:\my demo 2`, and open a session with it. Also try it as `D:/my demo 2/` | A scribe walks in and the table is named `my demo 2`. The same path in both spellings gives the same table | A screenshot. Say which drive letters the PC has |
+| W13 | Open the sessions menu (the **Sessions** button), then look at the model list above **Open** and at the last line of the menu | The list offers Default (Claude Code), Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5. The last line reads `0.3.1 · <commit>` (not `DEV`) | A screenshot of the open menu |
+| W14 | Pick **Sonnet 5.5**, open a session on `C:\Users\<you>\my demo`, send a short message, then close and reopen Diwan and open the menu again | The session row shows a `Sonnet 5.5` tag, and the list still says Sonnet 5.5 after the restart. If your account has no access to that model, say so and what error you saw | A screenshot before and after the restart |
+| W15 | (Tests the local-port fix) With Diwan open, in PowerShell: `Invoke-WebRequest -Method Post -Uri http://127.0.0.1:4317/event -ContentType text/plain -Body x -SkipHttpErrorCheck` (PowerShell 7), or in Windows PowerShell 5.1 the same inside try/catch and print the status code | Status 415 (`expected application/json`), and no scribe appears. W10 with `application/json` still gives `ok` = `True` | The output |
 
 ### Steps 5 to 9 (for W7)
 
@@ -39,7 +42,7 @@ Send these in the `my demo` session:
 
 | Step | Do | You should see |
 |---|---|---|
-| 5 | Send `Read notes.txt and tell me its first line.` | The scribe goes to the archive (reading), comes back, delivers at your table (done) and returns to its chair; the reply appears |
+| 5 | Send `Read notes.txt and tell me its first line.` | The scribe goes to the archive (reading), comes back, delivers at your table (done) and returns to its chair; the reply appears in a card titled **REPLY** |
 | 6 | Send `Fetch https://example.com and tell me the page title.` | An approval bubble over the scribe, who waits at your table (blocked). **Allow** → the scribe goes to the window (web), then delivers |
 | 7 | Send ``Run `echo hi > hi.txt` `` → **Deny** | Claude replies that it was denied, and the scribe does not stay standing in the queue |
 | 8 | Send `Count from 1 to 300, one number per line.` → press **Stop** while it writes | The scribe goes back to idle, and no error message |
@@ -66,7 +69,7 @@ Post 'session_ended' $null
 Copy this into an issue, one issue per problem found (and one issue with the full run).
 
 ```markdown
-### Diwan Windows test: 0.3.0
+### Diwan Windows test: 0.3.1
 
 - Windows version (winver):
 - Git for Windows installed: yes / no
@@ -92,6 +95,9 @@ Copy this into an issue, one issue per problem found (and one issue with the ful
 | W10 | | | |
 | W11 | | | |
 | W12 | | | |
+| W13 | | | |
+| W14 | | | |
+| W15 | | | |
 
 Error messages (exact text):
 
