@@ -41,8 +41,7 @@ Download the file for your system from the [Releases](../../releases) page.
 
       sudo apt install ./Diwan_0.3.1_amd64.deb
 
-- **Other Linux:** `Diwan_0.3.1_amd64.AppImage`, then `chmod +x Diwan_0.3.1_amd64.AppImage` and run it.
-  On Ubuntu 24.04 and later AppImages need `sudo apt install libfuse2t64` (on 22.04: `libfuse2`).
+- **Other Linux:** there is no AppImage for now, so Diwan needs a Debian-based system (Ubuntu, Debian, Mint, Zorin and similar).
 - **Windows (untested):** `Diwan_0.3.1_x64-setup.exe`. The installer is not signed, so Windows may say
   "Windows protected your PC": click **More info**, then **Run anyway**. It installs for your user only.
 
