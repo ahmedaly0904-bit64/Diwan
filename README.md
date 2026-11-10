@@ -11,6 +11,7 @@ This repository holds the installers and this page only. The source code is not 
 > **Alpha.** Diwan 0.3.1 is a pre-release: expect rough edges and changes between versions.
 > **Windows has not been tested on a real Windows machine yet.** The Windows installer is built on a GitHub runner and may
 > not work. Linux is the platform it is developed on.
+> If you use Claude Code on Windows, try it and tell me how it went in an [issue](https://github.com/ahmedaly0904-bit64/Diwan/issues).
 
 ## What you need
 
@@ -101,3 +102,5 @@ Open an issue in this repository with your system, your Claude Code version (`cl
 
 Diwan is proprietary software, free to use under its [license](LICENSE). Some features may become paid in the future.
 The open source components it includes are listed in [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
+
+Diwan in motion: [Instagram @diwan.hall](https://www.instagram.com/diwan.hall/)
