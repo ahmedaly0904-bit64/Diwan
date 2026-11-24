@@ -9,13 +9,13 @@ goes to the window for web work, waits for you when Claude needs your approval, 
 This repository holds the installers and this page only. The source code is not public.
 
 > **Beta.** Diwan 0.5.0 is a pre-release: expect rough edges and changes between versions.
-> **Windows has not been tested on a real Windows machine yet.** The Windows installer is built on a GitHub runner and may
-> not work. Linux is the platform it is developed on.
+> **Windows is barely tested.** Diwan 0.4.0 was tried on one real Windows machine, and 0.5.0 has not been tried on
+> Windows yet. The Windows installer is built on a GitHub runner and may not work. Linux is the platform it is developed on.
 > If you use Claude Code on Windows, try it and tell me how it went in an [issue](https://github.com/ahmedaly0904-bit64/Diwan/issues).
 
 ## What you need
 
-- **Linux** x86_64 (developed on Zorin OS 18, an Ubuntu 24.04 based system) or **Windows** 10 / 11, x64 (untested).
+- **Linux** x86_64 (developed on Zorin OS 18, an Ubuntu 24.04 based system) or **Windows** 10 / 11, x64 (barely tested).
 - **Claude Code, installed and signed in.** Diwan runs your own Claude Code with your own account. It never asks for,
   reads or stores a password or API key. Claude Code needs a paid Claude plan or an Anthropic Console account.
 
@@ -43,7 +43,7 @@ Download the file for your system from the [Releases](../../releases) page.
       sudo apt install ./Diwan_0.5.0_amd64.deb
 
 - **Other Linux:** there is no AppImage for now, so Diwan needs a Debian-based system (Ubuntu, Debian, Mint, Zorin and similar).
-- **Windows (untested):** `Diwan_0.5.0_x64-setup.exe`. The installer is not signed, so Windows may say
+- **Windows (barely tested):** `Diwan_0.5.0_x64-setup.exe`. The installer is not signed, so Windows may say
   "Windows protected your PC": click **More info**, then **Run anyway**. It installs for your user only.
 
 The license (LICENSE.txt) and the open source notices (THIRD-PARTY-NOTICES.txt) are installed with the app: in /usr/lib/Diwan/ on Linux and in the install folder on Windows, where the installer also shows the license first.
@@ -58,9 +58,10 @@ The license (LICENSE.txt) and the open source notices (THIRD-PARTY-NOTICES.txt) 
    (or type its full path, like `/home/you/project` or `C:\Users\you\project`), pick a model under it if you want
    another one than Claude Code's default, and press **Open**.
 3. A scribe walks in and sits at a table named after the folder, and a card for it appears at the top of the window.
-4. Type a message and press **Send**. The scribe moves with what Claude is doing.
+4. Type a message and press Enter or the arrow button (**Send**). The scribe moves with what Claude is doing.
 5. When Claude wants to run a command, edit a file or fetch a page, Diwan asks you first: press **Allow** or **Deny**.
-6. **Stop** interrupts Claude. **End session** closes the session and the scribe leaves.
+6. While Claude works, a square button (**Stop**) appears beside the arrow and interrupts Claude. **End session** closes
+   the session and the scribe leaves.
 
 ## What works and what does not
 
@@ -93,7 +94,7 @@ Known limits:
   ends, not while Claude is working.
 - **Two projects at a time, four scribes each** (the hall has two tables of four chairs).
 - **The name in your app menu, task bar and installed apps list is "Diwan"**, in English. The window title is «ديوان».
-- **Windows is untested** (see above). If you try it, the test checklist is in
+- **Windows is barely tested** (see above). If you try it, the test checklist is in
   [WINDOWS-TESTING.md](WINDOWS-TESTING.md).
 - The interface is in English.
 
