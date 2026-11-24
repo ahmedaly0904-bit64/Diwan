@@ -8,7 +8,7 @@ goes to the window for web work, waits for you when Claude needs your approval, 
 
 This repository holds the installers and this page only. The source code is not public.
 
-> **Beta.** Diwan 0.4.0 is a pre-release: expect rough edges and changes between versions.
+> **Beta.** Diwan 0.5.0 is a pre-release: expect rough edges and changes between versions.
 > **Windows has not been tested on a real Windows machine yet.** The Windows installer is built on a GitHub runner and may
 > not work. Linux is the platform it is developed on.
 > If you use Claude Code on Windows, try it and tell me how it went in an [issue](https://github.com/ahmedaly0904-bit64/Diwan/issues).
@@ -38,12 +38,12 @@ open a new terminal. Other ways to install it are in Anthropic's guide: https://
 
 Download the file for your system from the [Releases](../../releases) page.
 
-- **Debian, Ubuntu, Zorin, Mint:** `Diwan_0.4.0_amd64.deb`, then
+- **Debian, Ubuntu, Zorin, Mint:** `Diwan_0.5.0_amd64.deb`, then
 
-      sudo apt install ./Diwan_0.4.0_amd64.deb
+      sudo apt install ./Diwan_0.5.0_amd64.deb
 
 - **Other Linux:** there is no AppImage for now, so Diwan needs a Debian-based system (Ubuntu, Debian, Mint, Zorin and similar).
-- **Windows (untested):** `Diwan_0.4.0_x64-setup.exe`. The installer is not signed, so Windows may say
+- **Windows (untested):** `Diwan_0.5.0_x64-setup.exe`. The installer is not signed, so Windows may say
   "Windows protected your PC": click **More info**, then **Run anyway**. It installs for your user only.
 
 The license (LICENSE.txt) and the open source notices (THIRD-PARTY-NOTICES.txt) are installed with the app: in /usr/lib/Diwan/ on Linux and in the install folder on Windows, where the installer also shows the license first.
@@ -54,9 +54,10 @@ The license (LICENSE.txt) and the open source notices (THIRD-PARTY-NOTICES.txt) 
 
 1. Open **Diwan** from your app menu (or the Start menu on Windows). If a card says Claude Code is not installed,
    not signed in or needs an update, do what it says and press **Check again**.
-2. Press the sessions button at the top of the left rail, then **＋ New session in folder…**, press **Browse…** and pick
-   a project folder (or type its full path, like `/home/you/project` or `C:\Users\you\project`), and press **Open**.
-3. A scribe walks in and sits at a table named after the folder.
+2. Press the menu button at the top left, then **New session in folder…**, press **Browse…** and pick a project folder
+   (or type its full path, like `/home/you/project` or `C:\Users\you\project`), pick a model under it if you want
+   another one than Claude Code's default, and press **Open**.
+3. A scribe walks in and sits at a table named after the folder, and a card for it appears at the top of the window.
 4. Type a message and press **Send**. The scribe moves with what Claude is doing.
 5. When Claude wants to run a command, edit a file or fetch a page, Diwan asks you first: press **Allow** or **Deny**.
 6. **Stop** interrupts Claude. **End session** closes the session and the scribe leaves.
@@ -69,20 +70,28 @@ Works today (on Linux):
 - Finding Claude Code when it is installed in the usual places, even when the app menu does not see your terminal's
   `PATH`.
 - A first-run card when Claude Code is missing, signed out or older than the version Diwan was tested with (2.1.310).
-- **Sessions you start in a terminal**, after you press **Show terminal sessions** at the bottom of the sessions menu.
+- **A card per scribe** at the top of the window, with its project and what it is doing in words (circles from the
+  fifth scribe on). Click a scribe, in the hall or in the sessions menu, to open its replies.
+- **Replies with their formatting** (headings, lists, code, tables and links), Arabic text right to left, and the
+  whole command in every approval.
+- **The model and effort** of a session, from the button in the message box, and Claude Code's commands and skills
+  from a menu when you type `/`.
+- **Your earlier messages** with the up arrow in an empty message box.
+- **A question before Diwan closes** while a scribe is still working.
+- **Sessions you start in a terminal**, after you press **Show** in the terminal sessions row of the sessions menu.
   While Diwan is open, it keeps seven hooks in your Claude Code settings file (`~/.claude/settings.json`); it takes
   them out when its window closes and puts them back the next time it starts. Your own settings are kept, and the file
-  as it was before is saved beside it as `settings.json.diwan-backup`. **Stop showing them** turns this off.
+  as it was before is saved beside it as `settings.json.diwan-backup`. **Hide** turns this off.
 
 Known limits:
 
 - **If Diwan crashes or is killed** while terminal sessions are shown, its hooks stay in your settings file and
-  `claude` prints `Stop hook error` after each reply until you open and close Diwan again. Press **Stop showing them**
-  before you uninstall Diwan. While hooks are left behind like this, any program listening on port 4317 receives what
-  Claude Code does, so on a computer other people log into, leave **Show terminal sessions** off.
+  `claude` prints `Stop hook error` after each reply until you open and close Diwan again. Press **Hide** before you
+  uninstall Diwan. While hooks are left behind like this, any program listening on port 4317 receives what
+  Claude Code does, so on a computer other people log into, keep terminal sessions hidden.
 - **The context bar** (how full Claude's context is) for sessions you open in Diwan updates once, when each reply
   ends, not while Claude is working.
-- **Two projects at a time** (the hall has two tables).
+- **Two projects at a time, four scribes each** (the hall has two tables of four chairs).
 - **The name in your app menu, task bar and installed apps list is "Diwan"**, in English. The window title is «ديوان».
 - **Windows is untested** (see above). If you try it, the test checklist is in
   [WINDOWS-TESTING.md](WINDOWS-TESTING.md).
@@ -98,7 +107,6 @@ of recent events (at most about 4 MB, older events are dropped) in its own app d
 ## Uninstall
 
 - deb: `sudo apt remove diwan`
-- AppImage: delete the file.
 - Windows: Settings → Apps → Diwan → Uninstall.
 
 ## Reporting problems
